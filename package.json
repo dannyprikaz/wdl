@@ -1,0 +1,42 @@
+{
+  "name": "wdl",
+  "version": "0.0.0",
+  "description": "Bundle for running visual elements of Whodunnit Leage",
+  "homepage": "https://www.facebook.com/whodunnitshow",
+  "author": {
+    "name": "Danny Prikazsky",
+    "email": "dannyprikaz@gmail.com",
+    "url": "https://www.facebook.com/ActorDannyP"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "table",
+        "title": "Table",
+        "width": 4,
+        "file": "table.html",
+        "headerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "table.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "license": "Apache-2.0"
+}
