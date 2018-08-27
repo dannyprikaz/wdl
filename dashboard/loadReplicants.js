@@ -1,2 +1,4 @@
 const playersRep = nodecg.Replicant('playersRep')
-playersRep.value = (playersRep.value ? playersRep.value : [])
+NodeCG.waitForReplicants(playersRep).then(() => {
+  playersRep.value = (playersRep.value ? playersRep.value : [])
+});

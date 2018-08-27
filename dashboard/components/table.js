@@ -7,7 +7,6 @@ class Table extends React.Component {
         }
         this.addPlayer = this.addPlayer.bind(this)
         playersRep.on('change', (newValue, oldValue) => {
-          console.log(newValue, oldValue)
           this.setState((state) => ({
             players: playersRep.value
           }))
