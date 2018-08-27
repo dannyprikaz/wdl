@@ -21,7 +21,7 @@ class Table extends React.Component {
       playersRep.value = this.state.players
     }
     render() {
-        var adder = this.props.graphic ? '' : <AddPlayer addNew={this.addplayer} />
+        var adder = this.props.graphic ? '' : <AddPlayer addNew={this.addPlayer} />
         return (
           <div>
             {adder}
