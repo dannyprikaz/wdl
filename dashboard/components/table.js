@@ -21,9 +21,10 @@ class Table extends React.Component {
       playersRep.value = this.state.players
     }
     render() {
+        var adder = this.props.graphic ? '' : <AddPlayer addNew={this.addplayer} />
         return (
           <div>
-            <AddPlayer addNew={this.addPlayer} />
+            {adder}
             <div>
                 {this.state.players.map((player) => <Player name={player} />)}
             </div>

@@ -7,12 +7,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
     <script src="../dashboard/loadReplicants.js"></script>
     <script type="text/babel" src="../dashboard/components/player.js"></script>
-    <script type="text/babel" src="./components/table.js"></script>
+    <script type="text/babel" src="../dashboard/components/table.js"></script>
 </head>
 <body>
   <div id="root"></div>
   <script type="text/babel">
-      ReactDOM.render(<Table />, document.getElementById('root'));
+      ReactDOM.render(<Table graphic={true}/>, document.getElementById('root'));
   </script>
 </body>
 </html>
