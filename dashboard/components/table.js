@@ -6,11 +6,19 @@ class Table extends React.Component {
             players: []
         }
         this.addPlayer = this.addPlayer.bind(this)
+        NodeCG.waitForReplicants(playersRep).then(() => {
+          this.setState((state) => ({
+            players: (playersRep.value ? playersRep.value : [])
+          }))
+        });
     }
     addPlayer(player) {
       this.setState((state) => ({
         players: state.players.concat([player])
       }))
+    }
+    componentDidUpdate() {
+      playersRep.value = this.state.players
     }
     render() {
         return (
