@@ -6,9 +6,10 @@ class Table extends React.Component {
             players: []
         }
         this.addPlayer = this.addPlayer.bind(this)
-        NodeCG.waitForReplicants(playersRep).then(() => {
+        playersRep.on('change', (newValue, oldValue) => {
+          console.log(newValue, oldValue)
           this.setState((state) => ({
-            players: (playersRep.value ? playersRep.value : [])
+            players: playersRep.value
           }))
         });
     }
