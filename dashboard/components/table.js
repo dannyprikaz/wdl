@@ -6,11 +6,13 @@ class Table extends React.Component {
             players: {}
         }
         this.addPlayer = this.addPlayer.bind(this)
-        playersRep.on('change', (newValue, oldValue) => {
-          this.setState((state) => ({
-            players: playersRep.value
-          }))
-        });
+    }
+    componentDidMount() {
+      playersRep.on('change', (newValue, oldValue) => {
+        this.setState((state) => ({
+          players: playersRep.value
+        }))
+      });      
     }
     addPlayer(playerName) {
       let newPlayers = Object.assign({}, this.state.players);
