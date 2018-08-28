@@ -3,7 +3,7 @@ class Table extends React.Component {
         super(props)
 
         this.state = {
-            players: []
+            players: {}
         }
         this.addPlayer = this.addPlayer.bind(this)
         playersRep.on('change', (newValue, oldValue) => {
@@ -12,9 +12,11 @@ class Table extends React.Component {
           }))
         });
     }
-    addPlayer(player) {
+    addPlayer(playerName) {
+      let newPlayers = Object.assign({}, this.state.players);
+      newPlayers[newID()] = {name: playerName, role: 'Troublemaker'}
       this.setState((state) => ({
-        players: state.players.concat([player])
+        players: newPlayers
       }))
     }
     componentDidUpdate() {
@@ -26,7 +28,15 @@ class Table extends React.Component {
           <div>
             {adder}
             <div>
-                {this.state.players.map((player) => <Player graphic={this.props.graphic} name={player} />)}
+                {Object.entries(this.state.players).map((entry) =>
+                  <Player
+                    graphic={this.props.graphic}
+                    key={entry[0]}
+                    uid={entry[0]}
+                    name={entry[1].name}
+                    role={entry[1].role}
+                  />)
+                }
             </div>
           </div>
         )
