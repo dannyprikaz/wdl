@@ -26,7 +26,7 @@ class Table extends React.Component {
           <div>
             {adder}
             <div>
-                {this.state.players.map((player) => <Player name={player} />)}
+                {this.state.players.map((player) => <Player graphic={this.props.graphic} name={player} />)}
             </div>
           </div>
         )
