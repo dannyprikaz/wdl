@@ -12,11 +12,11 @@ class Table extends React.Component {
         this.setState((state) => ({
           players: playersRep.value
         }))
-      });      
+      });
     }
     addPlayer(playerName) {
       let newPlayers = Object.assign({}, this.state.players);
-      newPlayers[newID()] = {name: playerName, role: 'Troublemaker'}
+      newPlayers[newID()] = {name: playerName, role: ''}
       this.setState((state) => ({
         players: newPlayers
       }))
