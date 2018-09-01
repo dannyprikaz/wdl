@@ -41,6 +41,11 @@
         "file": "table.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "alert-graphic.html",
+        "width": 1920,
+        "height": 1080
       }
     ]
   },
