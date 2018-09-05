@@ -27,11 +27,23 @@
         "width": 4,
         "file": "table.html",
         "headerColor": "#525F78"
+      },
+      {
+        "name": "alerts",
+        "title": "Alerts",
+        "width": "1",
+        "file": "alerts.html",
+        "headerColor": "#c0a955"
       }
     ],
     "graphics": [
       {
         "file": "table.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "alert-graphic.html",
         "width": 1920,
         "height": 1080
       }
