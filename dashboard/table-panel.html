@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./constants.js"></script>
+    <script src="./helper.js"></script>
+    <script>
+    var app = angular.module('tableApp', []);
+    </script>
+    <script src="./controllers/table.js"></script>
+    <script src="./directives/player.js"></script>
+</head>
+<body>
+    <div ng-app="tableApp" ng-controller="tableCtrl">
+      <form ng-submit="addPlayer()">
+        <input type="text" ng-model="playerName"></input>
+        <input type="submit" value="Add Player"></input>
+      </form>
+      <div>
+          <player
+            ng-repeat="(key, player) in players"
+            key="{{key}}"
+            panel="{{true}}"
+            onuw="onuw"
+            player="player"
+            remove="removePlayer(key)"
+            assign="assignRole(playerId, newRole)">
+          </player>
+      </div>
+    </div>
+</body>
+</html>

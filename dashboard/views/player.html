@@ -1,0 +1,19 @@
+<div>
+    <h3>{{player.name}}</h3>
+    <p>Role: {{player.role}}</p>
+    <p>
+      <select ng-model="newRole" ng-show="{{panel}}">
+        <option ng-repeat="onuwRole in onuw">{{onuwRole}}</option>
+      </select>
+      <button
+        ng-click="assign({playerId: key, newRole: newRole})"
+        ng-show="{{panel}}">
+        Assign Role
+      </button>
+    </p>
+    <button
+      ng-click="remove()"
+      ng-show="{{panel}}">
+      Remove
+    </button>
+</div>

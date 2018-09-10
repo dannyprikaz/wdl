@@ -2,16 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
-    <script src="../dashboard/helper.js"></script>
-    <script type="text/babel" src="./components/alerts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="text/babel">
-        ReactDOM.render(<Alerts />, document.getElementById('root'));
+    <div ng-app='alertsApp' ng-controller='alertsCtrl'>
+      <p ng-show='showAlert'>Good Play!</p>
+    </div>
+    <script>
+    var app = angular.module('alertsApp', []);
+    app.controller('alertsCtrl', function($scope, $timeout) {
+      $scope.showAlert = false;
+
+      $scope.alert = function() {
+        $scope.showAlert = true;
+        $scope.$apply();
+        $timeout(function() {$scope.showAlert = false;}, 2000);
+      }
+
+      nodecg.listenFor('goodPlay', $scope.alert);
+    });
     </script>
 </body>
 </html>
