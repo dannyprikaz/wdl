@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
-    <script type="text/babel" src="./components/goodPlay.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="text/babel">
-        ReactDOM.render(<GoodPlay />, document.getElementById('root'));
-    </script>
+  <div ng-app="alertsApp" ng-controller="alertsCtrl">
+    <button ng-click="alert()">Good Play!</button>
+  </div>
+  <script>
+  var app = angular.module('alertsApp', []);
+  app.controller('alertsCtrl', function($scope) {
+    $scope.alert = function() {
+      nodecg.sendMessage('goodPlay');
+    };
+  });
+  </script>
 </body>
 </html>
