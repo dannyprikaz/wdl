@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="constants.js"></script>
+</head>
+<body>
+  <div ng-app="rolesApp" ng-controller="rolesCtrl">
+    <div ng-repeat="role in roles">{{role}}</div>
+  </div>
+  <script>
+  var app = angular.module('rolesApp', []);
+  app.controller('rolesCtrl', function($scope) {
+    $scope.roles = onuwRoles;
+  });
+  </script>
+</body>
+</html>
