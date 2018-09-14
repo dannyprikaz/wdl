@@ -7,7 +7,7 @@
 </head>
 <body>
   <div ng-app="rolesApp" ng-controller="rolesCtrl">
-    <div ng-repeat="role in roles">{{role}}</div>
+    <img ng-repeat="role in roles" src="./img/{{role}}.png" style="height:100px"></img>
   </div>
   <script>
   var app = angular.module('rolesApp', []);
