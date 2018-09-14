@@ -5,7 +5,7 @@
 app.controller('tableCtrl', function($scope) {
   $scope.playerName = '';
   $scope.players = {};
-  $scope.onuw = onuwRoles;
+  $scope.activeRoles = [];
 
   $scope.addPlayer = function() {
     playersRep.value[newID()] = {name: $scope.playerName, role: ''}
@@ -24,8 +24,17 @@ app.controller('tableCtrl', function($scope) {
     $scope.$apply();
   });
 
+  activeRolesRep.on('change', (newValue, oldValue) => {
+    $scope.$apply();
+  });
+
   NodeCG.waitForReplicants(playersRep).then(() => {
     $scope.players = playersRep.value;
+    $scope.$apply();
+  });
+
+  NodeCG.waitForReplicants(activeRolesRep).then(() => {
+    $scope.activeRoles = activeRolesRep.value;
     $scope.$apply();
   });
 });

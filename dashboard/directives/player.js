@@ -11,7 +11,7 @@ app.directive('player', function() {
       panel: '@',
       key: '@',
       player: '=',
-      onuw: '=',
+      active: '=',
       remove: '&',
       assign: '&'
     },
