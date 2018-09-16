@@ -6,20 +6,28 @@
 </head>
 <body>
     <div ng-app='alertsApp' ng-controller='alertsCtrl'>
-      <p ng-show='showAlert'>Good Play!</p>
+      <p ng-show='showAlertGoodPlay'>Good Play!</p>
+	    <p ng-show='showAlertBadLie'>Bad Lie!</p>
     </div>
     <script>
     var app = angular.module('alertsApp', []);
     app.controller('alertsCtrl', function($scope, $timeout) {
-      $scope.showAlert = false;
-
-      $scope.alert = function() {
-        $scope.showAlert = true;
+      $scope.showAlertGoodPlay = false;
+      $scope.showAlertBadLie = false;
+      $scope.alertGoodPlay = function() {
+        $scope.showAlertGoodPlay = true;
         $scope.$apply();
-        $timeout(function() {$scope.showAlert = false;}, 2000);
+        $timeout(function() {$scope.showAlertGoodPlay = false;}, 2000);
       }
 
-      nodecg.listenFor('goodPlay', $scope.alert);
+    $scope.alertBadLie = function() {
+        $scope.showAlertBadLie = true;
+        $scope.$apply();
+        $timeout(function() {$scope.showAlertBadLie = false;}, 2000);
+      }
+
+      nodecg.listenFor('goodPlay', $scope.alertGoodPlay);
+      nodecg.listenFor('badLie', $scope.alertBadLie);
     });
     </script>
 </body>
