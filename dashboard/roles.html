@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <script src="./angular.min.js"></script>
     <script src="constants.js"></script>
+    <script>
+    var app = angular.module('rolesApp', []);
+    </script>
+    <script src="./controllers/roles.js"></script>
+    <script src="./directives/selectableRole.js"></script>
 </head>
 <body>
   <div ng-app="rolesApp" ng-controller="rolesCtrl">
@@ -14,31 +19,5 @@
       toggle="toggle(role)">
     </selectable-role>
   </div>
-  <script>
-  var app = angular.module('rolesApp', []);
-  app.controller('rolesCtrl', function($scope) {
-    $scope.roles = onuwRoles;
-    $scope.activeRoles = [];
-
-    $scope.toggle = function(role) {
-      var index = $scope.activeRoles.indexOf(role);
-      if ($scope.activeRoles.includes(role)) {
-        $scope.activeRoles.splice(index, 1);
-      } else {
-        $scope.activeRoles.push(role);
-      }
-    }
-
-    activeRolesRep.on('change', (newValue, oldValue) => {
-      $scope.$apply();
-    });
-
-    NodeCG.waitForReplicants(activeRolesRep).then(() => {
-      $scope.activeRoles = activeRolesRep.value;
-      $scope.$apply();
-    });
-  });
-  </script>
-  <script src="./directives/selectableRole.js"></script>
 </body>
 </html>
