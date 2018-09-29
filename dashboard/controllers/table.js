@@ -18,6 +18,7 @@ app.controller('tableCtrl', function($scope) {
 
   $scope.removePlayer = function(playerId) {
     delete playersRep.value[playerId];
+    $scope.showTooMany = false;
   };
 
   $scope.assignRole = function(playerId, role) {
