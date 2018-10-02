@@ -1,9 +1,12 @@
 <div>
     <h3>{{player.name}}</h3>
-    <p>Role: {{player.role}}</p>
+    <img
+      src="../dashboard/img/{{active.indexOf(player.role) !== -1 ? player.role : 'card_back'}}.png"
+      style="height:80px">
+    </img>
     <p>
       <select ng-model="newRole" ng-show="{{panel}}">
-        <option ng-repeat="onuwRole in onuw">{{onuwRole}}</option>
+        <option ng-repeat="onuwRole in active | orderBy">{{onuwRole}}</option>
       </select>
       <button
         ng-click="assign({playerId: key, newRole: newRole})"

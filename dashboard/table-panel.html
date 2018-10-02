@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./angular.min.js"></script>
     <script src="./constants.js"></script>
     <script src="./helper.js"></script>
     <script>
@@ -26,7 +26,7 @@
             ng-repeat="(key, player) in players"
             key="{{key}}"
             panel="{{true}}"
-            onuw="onuw"
+            active="activeRoles"
             player="player"
             remove="removePlayer(key)"
             assign="assignRole(playerId, newRole)">
