@@ -14,8 +14,12 @@
 <body>
     <div ng-app="tableApp" ng-controller="tableCtrl">
       <form ng-submit="addPlayer()">
-        <input type="text" ng-model="playerName"></input>
+        <input type="text" ng-model="playerName" required></input>
         <input type="submit" value="Add Player"></input>
+        <p ng-show="showTooMany" style="color:red">
+          Too many players. If you would like to add a player,
+          please remove at least one of the current players.
+        </p>
       </form>
       <div>
           <player
