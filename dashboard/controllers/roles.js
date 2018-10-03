@@ -12,7 +12,7 @@ app.controller('rolesCtrl', function($scope) {
     var index = $scope.activeRoles.indexOf(role);
     if ($scope.activeRoles.includes(role)) {
       $scope.activeRoles.splice(index, 1);
-    } else {
+    } else if ($scope.activeRoles.length < Object.entries($scope.players).length + 3) {
       $scope.activeRoles.push(role);
     }
   }
