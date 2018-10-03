@@ -7,6 +7,7 @@ app.controller('tableCtrl', function($scope) {
   $scope.players = {};
   $scope.activeRoles = [];
   $scope.showTooMany = false;
+  $scope.reps = [playersRep, activeRolesRep];
 
   $scope.addPlayer = function() {
     $scope.showTooMany = (Object.keys(playersRep.value).length >= 8);
@@ -25,20 +26,14 @@ app.controller('tableCtrl', function($scope) {
     playersRep.value[playerId].role = role;
   };
 
-  playersRep.on('change', (newValue, oldValue) => {
-    $scope.$apply();
+  $scope.reps.forEach(function(replicant) {
+    replicant.on('change', (newValue, oldValue) => {
+      $scope.$apply();
+    });
   });
 
-  activeRolesRep.on('change', (newValue, oldValue) => {
-    $scope.$apply();
-  });
-
-  NodeCG.waitForReplicants(playersRep).then(() => {
+  NodeCG.waitForReplicants(...$scope.reps).then(() => {
     $scope.players = playersRep.value;
-    $scope.$apply();
-  });
-
-  NodeCG.waitForReplicants(activeRolesRep).then(() => {
     $scope.activeRoles = activeRolesRep.value;
     $scope.$apply();
   });
