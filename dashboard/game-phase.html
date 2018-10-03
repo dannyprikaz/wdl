@@ -7,10 +7,16 @@
 </head>
 <body>
   <div ng-app="gamePhaseApp" ng-controller="gamePhaseCtrl">
+    <h2>Assign Roles</h2>
+    <button ng-click="deal()">Deal</button>
   </div>
   <script>
   var app = angular.module('gamePhaseApp', []);
-  app.controller('gamePhaseCtrl', function($scope) {});
+  app.controller('gamePhaseCtrl', function($scope) {
+    $scope.deal = function() {
+      nodecg.sendMessage('deal');
+    }
+  });
   </script>
 </body>
 </html>
