@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="./angular.min.js"></script>
     <script src="constants.js"></script>
+    <script src="helper.js"></script>
 </head>
 <body>
   <div ng-app="gamePhaseApp" ng-controller="gamePhaseCtrl">
@@ -14,8 +15,14 @@
   var app = angular.module('gamePhaseApp', []);
   app.controller('gamePhaseCtrl', function($scope) {
     $scope.deal = function() {
-      nodecg.sendMessage('deal');
-    }
+      var roles = shuffle(activeRolesRep.value.slice());
+      var roleToAssign;
+      Object.keys(playersRep.value).forEach(function(key) {
+        roleToAssign = roles.pop();
+        playersRep.value[key].role = roleToAssign;
+        console.log(roles, roleToAssign, playersRep.value[key].role)
+      });
+    };
   });
   </script>
 </body>
