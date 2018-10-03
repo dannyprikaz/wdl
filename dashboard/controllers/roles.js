@@ -17,6 +17,10 @@ app.controller('rolesCtrl', function($scope) {
     }
   }
 
+  $scope.enoughRoles = function() {
+    return $scope.activeRoles.length == Object.entries($scope.players).length + 3;
+  }
+
   $scope.objectElementCount = function(obj) {
     return Object.entries(obj).length;
   }

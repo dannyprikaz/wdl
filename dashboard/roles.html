@@ -9,11 +9,19 @@
     </script>
     <script src="./controllers/roles.js"></script>
     <script src="./directives/selectableRole.js"></script>
+    <style>
+    .green {
+      color: #52AF00;
+    }
+    .red {
+      color: #AF1010;
+    }
+    </style>
 </head>
 <body>
   <div ng-app="rolesApp" ng-controller="rolesCtrl">
     <div>
-      <h3>
+      <h3 ng-class="enoughRoles() ? 'green' : 'red'">
         {{activeRoles.length}}/{{objectElementCount(players) + 3}}
       </h3>
     </div>
