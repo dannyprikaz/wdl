@@ -5,18 +5,10 @@
       style="height:80px">
     </img>
     <p>
-      <select ng-model="newRole" ng-show="{{panel}}">
-        <option ng-repeat="onuwRole in active | orderBy">{{onuwRole}}</option>
-      </select>
       <button
-        ng-click="assign({playerId: key, newRole: newRole})"
+        ng-click="remove()"
         ng-show="{{panel}}">
-        Assign Role
+        Remove
       </button>
     </p>
-    <button
-      ng-click="remove()"
-      ng-show="{{panel}}">
-      Remove
-    </button>
 </div>

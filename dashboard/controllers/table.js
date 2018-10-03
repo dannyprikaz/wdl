@@ -22,10 +22,6 @@ app.controller('tableCtrl', function($scope) {
     $scope.showTooMany = false;
   };
 
-  $scope.assignRole = function(playerId, role) {
-    playersRep.value[playerId].role = role;
-  };
-
   $scope.deal = function() {
     var roles = shuffle($scope.activeRoles.slice());
     Object.entries($scope.players).forEach(function(entry) {
