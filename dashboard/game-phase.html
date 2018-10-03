@@ -16,11 +16,8 @@
   app.controller('gamePhaseCtrl', function($scope) {
     $scope.deal = function() {
       var roles = shuffle(activeRolesRep.value.slice());
-      var roleToAssign;
       Object.keys(playersRep.value).forEach(function(key) {
-        roleToAssign = roles.pop();
-        playersRep.value[key].role = roleToAssign;
-        console.log(roles, roleToAssign, playersRep.value[key].role)
+        playersRep.value[key].role = roles.pop();
       });
     };
   });
