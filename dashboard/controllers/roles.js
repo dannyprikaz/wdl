@@ -5,6 +5,8 @@
 app.controller('rolesCtrl', function($scope) {
   $scope.roles = onuwRoles;
   $scope.activeRoles = [];
+  $scope.players = {};
+  $scope.reps = [activeRolesRep, playersRep];
 
   $scope.toggle = function(role) {
     var index = $scope.activeRoles.indexOf(role);
@@ -15,12 +17,19 @@ app.controller('rolesCtrl', function($scope) {
     }
   }
 
-  activeRolesRep.on('change', (newValue, oldValue) => {
-    $scope.$apply();
+  $scope.objectElementCount = function(obj) {
+    return Object.entries(obj).length;
+  }
+
+  $scope.reps.forEach(function(rep) {
+    rep.on('change', (newValue, oldValue) => {
+      $scope.$apply();
+    });
   });
 
-  NodeCG.waitForReplicants(activeRolesRep).then(() => {
+  NodeCG.waitForReplicants(...$scope.reps).then(() => {
     $scope.activeRoles = activeRolesRep.value;
+    $scope.players = playersRep.value;
     $scope.$apply();
   });
 });

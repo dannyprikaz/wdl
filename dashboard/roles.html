@@ -12,6 +12,11 @@
 </head>
 <body>
   <div ng-app="rolesApp" ng-controller="rolesCtrl">
+    <div>
+      <h3>
+        {{activeRoles.length}}/{{objectElementCount(players) + 3}}
+      </h3>
+    </div>
     <selectable-role
       ng-repeat="role in roles"
       role="{{role}}"
