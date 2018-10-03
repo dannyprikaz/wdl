@@ -7,10 +7,33 @@
 </head>
 <body>
   <div ng-app="middleApp" ng-controller="middleCtrl">
+    <div ng-repeat="role in middleRoles" style="display:inline-block">
+      <img
+        src="img/{{activeRoles.indexOf(role) !== -1 ? role : 'card_back'}}.png"
+        style="height:100px">
+      </img>
+    </div>
   </div>
   <script>
   var app = angular.module('middleApp', []);
-  app.controller('middleCtrl', function($scope) {});
+  app.controller('middleCtrl', function($scope) {
+    $scope.middleRoles = [];
+    $scope.activeRoles = [];
+    $scope.reps = [middleRolesRep, activeRolesRep];
+
+    $scope.reps.forEach(function(replicant) {
+      replicant.on('change', (newValue, oldValue) => {
+        $scope.middleRoles = middleRolesRep.value;
+        $scope.$apply();
+      });
+    });
+
+    NodeCG.waitForReplicants(...$scope.reps).then(() => {
+      $scope.middleRoles = middleRolesRep.value;
+      $scope.activeRoles = activeRolesRep.value;
+      $scope.$apply();
+    });
+  });
   </script>
 </body>
 </html>
