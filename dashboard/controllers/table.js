@@ -26,11 +26,21 @@ app.controller('tableCtrl', function($scope) {
     playersRep.value[playerId].role = role;
   };
 
+  $scope.deal = function() {
+    var roles = shuffle($scope.activeRoles.slice());
+    Object.entries($scope.players).forEach(function(entry) {
+      $scope.players[entry[0]].role = roles.pop();
+    });
+
+  };
+
   $scope.reps.forEach(function(replicant) {
     replicant.on('change', (newValue, oldValue) => {
       $scope.$apply();
     });
   });
+
+  nodecg.listenFor('deal', $scope.deal);
 
   NodeCG.waitForReplicants(...$scope.reps).then(() => {
     $scope.players = playersRep.value;
