@@ -9,5 +9,8 @@
         {{player.name}}
     </h3>
   </div>
+  <div ng-repeat="winner in winners" ng-show="victory(winner)">
+    <h3>{{winner}} Victory!</h3>
+  </div>
 </div>
-<button ng-click="next()">Next</button>
+<button ng-click="next()">Submit</button>
