@@ -8,10 +8,10 @@ app.directive('whoDied', function() {
   var controller = ['$scope', function ($scope) {
         $scope.players = {};
         $scope.rolesKilled = [];
-        $scope.winners = ['Werewolf', 'Tanner', 'Villager'];
+        $scope.teams = ['Werewolf', 'Tanner', 'Villager'];
         $scope.toggle = toggle;
 
-        $scope.victory = function(winner) {
+        $scope.victory = function(team) {
           var wolfKilled = $scope.rolesKilled.some(function(role) {
             return role.includes('Werewolf');
           });
@@ -19,11 +19,11 @@ app.directive('whoDied', function() {
           var wasWolf = Object.entries($scope.players).some(function(entry) {
             return entry[1].role.includes('Werewolf');
           });
-          if (winner === 'Villager') {
+          if (team === 'Villager') {
             return wolfKilled || (!wasWolf && $scope.rolesKilled.length == 0);
-          } else if (winner === 'Tanner') {
+          } else if (team === 'Tanner') {
             return tannerKilled;
-          } else if (winner === 'Werewolf') {
+          } else if (team === 'Werewolf') {
             return !(wolfKilled || tannerKilled) && wasWolf;
           }
         };
