@@ -28,6 +28,11 @@ app.directive('whoDied', function() {
           }
         };
 
+        $scope.endGame = function() {
+          $scope.rolesKilled = [];
+          $scope.next();
+        }
+
         playersRep.on('change', (newValue, oldValue) => {
           $scope.$apply();
         });
