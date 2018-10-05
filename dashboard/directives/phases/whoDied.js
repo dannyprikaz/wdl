@@ -7,6 +7,8 @@
 app.directive('whoDied', function() {
   var controller = ['$scope', function ($scope) {
         $scope.players = {};
+        $scope.rolesKilled = [];
+        $scope.toggle = toggle;
 
         playersRep.on('change', (newValue, oldValue) => {
           $scope.$apply();
