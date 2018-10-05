@@ -12,12 +12,16 @@ app.directive('assignRoles', function() {
       Object.keys(playersRep.value).forEach(function(key) {
         playersRep.value[key].role = roles.pop();
       });
+      $scope.next();
     };
   }],
 
   template = '<h2>Assign Roles</h2>' +
              '<button ng-click="deal()">Deal</button>'
   return {
+    scope: {
+      next: '&'
+    },
     restrict: 'E',
     controller: controller,
     template: template
