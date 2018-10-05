@@ -5,13 +5,7 @@
 'use strict';
 
 app.directive('whoDied', function() {
-  var template = '<h2>Who died?</h2>' +
-                 '<div style="display:inline-block;margin:10px" ng-repeat="(key, player) in players">' +
-                 '<h3>{{player.name}}</h3>' +
-                 '</div>' +
-                 '<button ng-click="next()">Next</button>',
-
-      controller = ['$scope', function ($scope) {
+  var controller = ['$scope', function ($scope) {
         $scope.players = {};
 
         playersRep.on('change', (newValue, oldValue) => {
@@ -28,7 +22,7 @@ app.directive('whoDied', function() {
       next: '&'
     },
     restrict: 'E',
-    template: template,
+    templateUrl: 'views/who-died.html',
     controller: controller
   };
 });
