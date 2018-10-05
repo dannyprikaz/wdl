@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="./angular.min.js"></script>
     <script src="constants.js"></script>
+    <script src="helper.js"></script>
     <script>
     var app = angular.module('rolesApp', []);
     </script>
@@ -16,7 +17,7 @@
       ng-repeat="role in roles"
       role="{{role}}"
       active="activeRoles"
-      toggle="toggle(role)">
+      toggle="toggle(role, activeRoles)">
     </selectable-role>
   </div>
 </body>

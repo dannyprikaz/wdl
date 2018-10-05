@@ -8,3 +8,11 @@ function shuffle(a) {
     }
     return a;
 }
+function toggle(item, arr) {
+  var index = arr.indexOf(item);
+  if (arr.includes(item)) {
+    arr.splice(index, 1);
+  } else {
+    arr.push(item);
+  }
+}

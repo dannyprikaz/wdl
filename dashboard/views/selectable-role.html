@@ -2,6 +2,6 @@
   <img
     src="./img/{{role}}.png"
     style="height:100px;opacity:{{active.includes(role) ? 1 : .5}}"
-    ng-click="toggle({role: role})">
+    ng-click="toggle({role: role, activeRoles: active})">
   </img>
 </div>
