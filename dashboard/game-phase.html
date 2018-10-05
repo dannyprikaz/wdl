@@ -8,19 +8,15 @@
 </head>
 <body>
   <div ng-app="gamePhaseApp" ng-controller="gamePhaseCtrl">
-    <h2>Assign Roles</h2>
-    <button ng-click="deal()">Deal</button>
+    <assign-roles></assign-roles>
   </div>
   <script>
   var app = angular.module('gamePhaseApp', []);
   app.controller('gamePhaseCtrl', function($scope) {
-    $scope.deal = function() {
-      var roles = shuffle(activeRolesRep.value.slice());
-      Object.keys(playersRep.value).forEach(function(key) {
-        playersRep.value[key].role = roles.pop();
-      });
-    };
+    $scope.phases = ['assign-roles', 'who-died'];
+    $scope.currentPhase = 'assign-roles';
   });
   </script>
+  <script src="directives/assignRoles.js"></script>
 </body>
 </html>
