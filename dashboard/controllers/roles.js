@@ -5,6 +5,7 @@
 app.controller('rolesCtrl', function($scope) {
   $scope.roles = onuwRoles;
   $scope.activeRoles = [];
+  $scope.toggle = toggle;
   $scope.players = {};
   $scope.reps = [activeRolesRep, playersRep];
 
@@ -19,6 +20,10 @@ app.controller('rolesCtrl', function($scope) {
 
   $scope.enoughRoles = function() {
     return $scope.activeRoles.length == Object.entries($scope.players).length + 3;
+  }
+
+  $scope.enoughOrTooMany = function() {
+    return $scope.activeRoles.length < Object.entries($scope.players).length + 3;
   }
 
   $scope.objectElementCount = function(obj) {
