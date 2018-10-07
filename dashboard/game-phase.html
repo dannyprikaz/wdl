@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./angular.min.js"></script>
+    <script src="constants.js"></script>
+    <script src="helper.js"></script>
+</head>
+<body>
+  <div ng-app="gamePhaseApp" ng-controller="gamePhaseCtrl">
+    <h2>Assign Roles</h2>
+    <button ng-click="deal()">Deal</button>
+  </div>
+  <script>
+  var app = angular.module('gamePhaseApp', []);
+  app.controller('gamePhaseCtrl', function($scope) {
+    $scope.deal = function() {
+      var roles = shuffle(activeRolesRep.value.slice());
+      Object.keys(playersRep.value).forEach(function(key) {
+        playersRep.value[key].role = roles.pop();
+      });
+    };
+  });
+  </script>
+</body>
+</html>
