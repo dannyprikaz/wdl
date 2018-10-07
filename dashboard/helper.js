@@ -8,11 +8,11 @@ function shuffle(a) {
     }
     return a;
 }
-function toggle(item, arr) {
+function toggle(item, arr, condition = function() {return true;}) {
   var index = arr.indexOf(item);
   if (arr.includes(item)) {
     arr.splice(index, 1);
-  } else {
+  } else if (condition()) {
     arr.push(item);
   }
 }
