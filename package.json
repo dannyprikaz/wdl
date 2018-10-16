@@ -48,6 +48,13 @@
         "width": 3,
         "file": "game-phase.html",
         "headerColor": "#771D2B"
+      },
+      {
+        "name": "middle",
+        "title": "Middle",
+        "width": 3,
+        "file": "middle.html",
+        "headerColor": "#444444"
       }
     ],
     "graphics": [
@@ -58,6 +65,11 @@
       },
       {
         "file": "alert-graphic.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "middle-graphic.html",
         "width": 1920,
         "height": 1080
       }

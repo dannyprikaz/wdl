@@ -12,6 +12,7 @@ app.directive('assignRoles', function() {
       Object.keys(playersRep.value).forEach(function(key) {
         playersRep.value[key].role = roles.pop();
       });
+      middleRolesRep.value = roles;
       $scope.next();
     };
   }],

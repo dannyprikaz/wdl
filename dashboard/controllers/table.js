@@ -8,6 +8,7 @@ app.controller('tableCtrl', function($scope) {
   $scope.activeRoles = [];
   $scope.showTooMany = false;
   $scope.reps = [playersRep, activeRolesRep];
+  $scope.noTrailingNumber = noTrailingNumber;
 
   $scope.addPlayer = function() {
     $scope.showTooMany = (Object.keys(playersRep.value).length >= 8);

@@ -23,7 +23,8 @@
       ng-repeat="role in roles"
       role="{{role}}"
       active="activeRoles"
-      toggle="toggle(role, activeRoles, enoughOrTooMany)">
+      toggle="toggle(role, activeRoles, enoughOrTooMany)"
+      no-trail="noTrailingNumber(role)">
     </selectable-role>
   </div>
 </body>

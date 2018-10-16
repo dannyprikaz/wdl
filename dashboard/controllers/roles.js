@@ -5,9 +5,10 @@
 app.controller('rolesCtrl', function($scope) {
   $scope.roles = onuwRoles;
   $scope.activeRoles = [];
-  $scope.toggle = toggle;
   $scope.players = {};
   $scope.reps = [activeRolesRep, playersRep];
+  $scope.noTrailingNumber = noTrailingNumber;
+  $scope.toggle = toggle;
 
   $scope.toggle = function(role) {
     var index = $scope.activeRoles.indexOf(role);
