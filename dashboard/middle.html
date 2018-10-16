@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <script src="./angular.min.js"></script>
     <script src="constants.js"></script>
+    <script src="helper.js"></script>
 </head>
 <body>
   <div ng-app="middleApp" ng-controller="middleCtrl">
     <div ng-repeat="role in middleRoles" style="display:inline-block">
       <img
-        src="img/{{activeRoles.indexOf(role) !== -1 ? role : 'card_back'}}.png"
+        src="img/{{activeRoles.indexOf(role) !== -1 ? noTrailingNumber(role) : 'card_back'}}.png"
         style="height:100px">
       </img>
     </div>
@@ -20,6 +21,7 @@
     $scope.middleRoles = [];
     $scope.activeRoles = [];
     $scope.reps = [middleRolesRep, activeRolesRep];
+    $scope.noTrailingNumber = noTrailingNumber;
 
     $scope.reps.forEach(function(replicant) {
       replicant.on('change', (newValue, oldValue) => {

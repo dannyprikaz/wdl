@@ -1,6 +1,6 @@
 <div style="display: inline-block">
   <img
-    src="./img/{{role}}.png"
+    src="./img/{{noTrail({role: role})}}.png"
     style="height:100px;opacity:{{active.includes(role) ? 1 : .5}}"
     ng-click="toggle({role: role})">
   </img>

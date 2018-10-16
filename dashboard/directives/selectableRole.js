@@ -10,7 +10,8 @@ app.directive('selectableRole', function() {
     scope: {
       role: '@',
       active: '=',
-      toggle: '&'
+      toggle: '&',
+      noTrail: '&'
     },
     templateUrl: '../dashboard/views/selectable-role.html',
   };

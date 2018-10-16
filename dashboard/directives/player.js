@@ -12,7 +12,8 @@ app.directive('player', function() {
       key: '@',
       player: '=',
       active: '=',
-      remove: '&'
+      remove: '&',
+      noTrail: '&'
     },
     templateUrl: '../dashboard/views/player.html'
   };

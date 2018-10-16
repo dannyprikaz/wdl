@@ -5,6 +5,7 @@
 app.controller('rolesCtrl', function($scope) {
   $scope.roles = onuwRoles;
   $scope.activeRoles = [];
+  $scope.noTrailingNumber = noTrailingNumber;
 
   $scope.toggle = function(role) {
     var index = $scope.activeRoles.indexOf(role);
