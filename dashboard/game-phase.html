@@ -8,20 +8,22 @@
 </head>
 <body>
   <div ng-app="gamePhaseApp" ng-controller="gamePhaseCtrl">
-    <h2>Assign Roles</h2>
-    <button ng-click="deal()">Deal</button>
+    <assign-roles next="next()" ng-show="currentPhase == 'assign-roles'"></assign-roles>
+    <who-died next="next()" ng-show="currentPhase == 'who-died'"></who-died>
   </div>
   <script>
   var app = angular.module('gamePhaseApp', []);
   app.controller('gamePhaseCtrl', function($scope) {
-    $scope.deal = function() {
-      var roles = shuffle(activeRolesRep.value.slice());
-      Object.keys(playersRep.value).forEach(function(key) {
-        playersRep.value[key].role = roles.pop();
-      });
-      middleRolesRep.value = roles;
+    $scope.phases = ['assign-roles', 'who-died'];
+    $scope.currentPhase = $scope.phases.shift();
+
+    $scope.next = function() {
+      $scope.phases.push($scope.currentPhase);
+      $scope.currentPhase = $scope.phases.shift();
     };
   });
   </script>
+  <script src="directives/phases/assignRoles.js"></script>
+  <script src="directives/phases/whoDied.js"></script>
 </body>
 </html>

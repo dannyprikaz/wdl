@@ -22,10 +22,10 @@
     "compatibleRange": "^1.1.1",
     "dashboardPanels": [
       {
-        "name": "table",
-        "title": "Table",
+        "name": "players",
+        "title": "Players",
         "width": 4,
-        "file": "table-panel.html",
+        "file": "player-panel.html",
         "headerColor": "#525F78"
       },
       {
@@ -59,7 +59,7 @@
     ],
     "graphics": [
       {
-        "file": "table-graphics.html",
+        "file": "player-graphics.html",
         "width": 1920,
         "height": 1080
       },
