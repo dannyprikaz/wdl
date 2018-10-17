@@ -1,9 +1,9 @@
 <div style="display:inline-block; margin:10px">
+    <h1 ng-if="player.role.length > 0">{{noTrail({role: player.role[0]})}}</h1>
+    <h2 ng-if="player.role.length > 1" ng-repeat="role in player.role.slice(1, player.role.length)">
+      {{noTrail({role: role})}}
+    </h2>
     <h3>{{player.name}}</h3>
-    <img
-      src="../dashboard/img/{{active.indexOf(player.role[0]) !== -1 ? noTrail({role: player.role[0]}) : 'card_back'}}.png"
-      style="height:80px">
-    </img>
     <p>
       <button
         ng-click="remove()"
