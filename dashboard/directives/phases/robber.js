@@ -15,14 +15,14 @@ app.directive('robber', function() {
         }
 
         $scope.rob = function() {
-          if ($scope.playerRobbed) {
-            var roleTaken = $scope.playerRobbed[0].role,
+          if ($scope.playerRobbed.length > 0) {
+            var roleTaken = $scope.playerRobbed[0].role[0],
                 nameOfVictim = $scope.playerRobbed[0].name;
             Object.entries(playersRep.value).forEach(function(entry) {
-              if (entry[1].role == 'Robber'){
-                entry[1].role = roleTaken;
+              if (entry[1].role[0] == 'Robber'){
+                entry[1].role.unshift(roleTaken);
               } else if (entry[1].name == nameOfVictim) {
-                entry[1].role = 'Robber';
+                entry[1].role.unshift('Robber');
               }
             });
             $scope.playerRobbed = [];

@@ -6,7 +6,7 @@
     <h3
       style="opacity:{{playerRobbed[0].name == player.name ? 1 : .5}}"
       ng-click="toggle(player, playerRobbed, arrayEmpty)"
-      ng-show="player.role != 'Robber'">
+      ng-show="player.role[0] != 'Robber'">
         {{player.name}}
     </h3>
   </div>

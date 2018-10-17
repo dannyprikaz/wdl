@@ -10,7 +10,7 @@ app.directive('assignRoles', function() {
     $scope.deal = function() {
       var roles = shuffle(activeRolesRep.value.slice());
       Object.keys(playersRep.value).forEach(function(key) {
-        playersRep.value[key].role = roles.pop();
+        playersRep.value[key].role = [roles.pop()];
       });
       if (!roles.includes('Robber') && activeRolesRep.value.includes('Robber')) {
         $scope.addRobber();

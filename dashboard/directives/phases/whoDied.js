@@ -17,7 +17,7 @@ app.directive('whoDied', function() {
           });
           var tannerKilled = $scope.rolesKilled.includes('Tanner');
           var wasWolf = Object.entries($scope.players).some(function(entry) {
-            return entry[1].role.includes('Werewolf');
+            return entry[1].role[0].includes('Werewolf');
           });
           if (team === 'Villager') {
             return wolfKilled || (!wasWolf && $scope.rolesKilled.length == 0);
