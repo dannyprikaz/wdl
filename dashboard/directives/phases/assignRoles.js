@@ -12,6 +12,9 @@ app.directive('assignRoles', function() {
       Object.keys(playersRep.value).forEach(function(key) {
         playersRep.value[key].role = roles.pop();
       });
+      if (!roles.includes('Robber') && activeRolesRep.value.includes('Robber')) {
+        $scope.addRobber();
+      }
       middleRolesRep.value = roles;
       $scope.next();
     };
@@ -21,7 +24,8 @@ app.directive('assignRoles', function() {
              '<button ng-click="deal()">Deal</button>'
   return {
     scope: {
-      next: '&'
+      next: '&',
+      addRobber: '&'
     },
     restrict: 'E',
     controller: controller,

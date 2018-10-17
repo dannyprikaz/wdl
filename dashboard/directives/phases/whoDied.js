@@ -30,7 +30,7 @@ app.directive('whoDied', function() {
 
         $scope.endGame = function() {
           $scope.rolesKilled = [];
-          $scope.next();
+          $scope.restart();
         }
 
         playersRep.on('change', (newValue, oldValue) => {
@@ -44,7 +44,7 @@ app.directive('whoDied', function() {
       }]
   return {
     scope: {
-      next: '&'
+      restart: '&'
     },
     restrict: 'E',
     templateUrl: 'views/who-died.html',

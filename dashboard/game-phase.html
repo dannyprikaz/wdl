@@ -8,22 +8,35 @@
 </head>
 <body>
   <div ng-app="gamePhaseApp" ng-controller="gamePhaseCtrl">
-    <assign-roles next="next()" ng-show="currentPhase == 'assign-roles'"></assign-roles>
-    <who-died next="next()" ng-show="currentPhase == 'who-died'"></who-died>
+    <assign-roles
+      next="next()" add-robber="addRobber()"
+      ng-show="currentPhase == 'assign-roles'">
+    </assign-roles>
+    <robber next="next()" ng-show="currentPhase == 'robber'"></robber>
+    <who-died restart="restart()" ng-show="currentPhase == 'who-died'"></who-died>
   </div>
   <script>
   var app = angular.module('gamePhaseApp', []);
   app.controller('gamePhaseCtrl', function($scope) {
-    $scope.phases = ['assign-roles', 'who-died'];
-    $scope.currentPhase = $scope.phases.shift();
+    $scope.phases = ['who-died'];
+    $scope.currentPhase = 'assign-roles';
 
     $scope.next = function() {
-      $scope.phases.push($scope.currentPhase);
       $scope.currentPhase = $scope.phases.shift();
+    };
+
+    $scope.restart = function() {
+      $scope.phases = ['who-died'];
+      $scope.currentPhase = 'assign-roles';
+    }
+
+    $scope.addRobber = function() {
+      $scope.phases.unshift('robber');
     };
   });
   </script>
   <script src="directives/phases/assignRoles.js"></script>
   <script src="directives/phases/whoDied.js"></script>
+  <script src="directives/phases/robber.js"></script>
 </body>
 </html>
