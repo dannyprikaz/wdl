@@ -34,7 +34,7 @@ app.directive('robber', function() {
           $scope.$apply();
         });
 
-        NodeCG.waitForReplicants(playersRep).then(() => {
+        safeToSet.then(() => {
           $scope.players = playersRep.value;
           $scope.$apply();
         });

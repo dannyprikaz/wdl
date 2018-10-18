@@ -27,7 +27,7 @@
       });
     });
 
-    NodeCG.waitForReplicants(...$scope.reps).then(() => {
+    safeToSet.then(() => {
       $scope.middleRoles = middleRolesRep.value;
       $scope.activeRoles = activeRolesRep.value;
       $scope.$apply();

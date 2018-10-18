@@ -37,7 +37,7 @@ app.controller('rolesCtrl', function($scope) {
     });
   });
 
-  NodeCG.waitForReplicants(...$scope.reps).then(() => {
+  safeToSet.then(() => {
     $scope.activeRoles = activeRolesRep.value;
     $scope.players = playersRep.value;
     $scope.$apply();

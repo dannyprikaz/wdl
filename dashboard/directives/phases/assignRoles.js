@@ -12,8 +12,16 @@ app.directive('assignRoles', function() {
       Object.keys(playersRep.value).forEach(function(key) {
         playersRep.value[key].role = [roles.pop()];
       });
+      // rolePhases.forEach(function(rolePhase) {
+      //   if(!roles.includes(rolePhase['role']) && activeRolesRep.value.includes(rolePhase['role'])) {
+      //     $scope.addRolePhase({rolePhase: rolePhase['directiveName']});
+      //   }
+      // });
+      if (!roles.includes('Troublemaker') && activeRolesRep.value.includes('Troublemaker')) {
+        $scope.addRolePhase({rolePhase: 'trouble-maker'});
+      }
       if (!roles.includes('Robber') && activeRolesRep.value.includes('Robber')) {
-        $scope.addRobber();
+        $scope.addRolePhase({rolePhase: 'robber'});
       }
       middleRolesRep.value = roles;
       $scope.next();
@@ -25,7 +33,7 @@ app.directive('assignRoles', function() {
   return {
     scope: {
       next: '&',
-      addRobber: '&'
+      addRolePhase: '&'
     },
     restrict: 'E',
     controller: controller,
