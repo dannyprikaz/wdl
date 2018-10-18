@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dashboard/angular.min.js"></script>
+    <script src="../dashboard/constants.js"></script>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+  <div ng-app="countdownApp" ng-controller="countdownCtrl" class="show-container">
+    <div class="countdown-wrapper">
+      <img src="../dashboard/img/R facing WDL 3D Logo monogrammed.png" />
+      <h1> Countdown to Stream </h1>
+      <h1>{{clockValue}}</h1>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('countdownApp', []);
+  app.controller('countdownCtrl', function($scope) {
+    countdownRep.on('change', (newValue, oldValue) => {
+      $scope.clockValue = countdownRep.value;
+      $scope.$apply();
+    });
+  });
+  </script>
+</body>
+</html>
