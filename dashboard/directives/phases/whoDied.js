@@ -17,7 +17,7 @@ app.directive('whoDied', function() {
           });
           var tannerKilled = $scope.rolesKilled.includes('Tanner');
           var wasWolf = Object.entries($scope.players).some(function(entry) {
-            return entry[1].role.includes('Werewolf');
+            return entry[1].role[0].includes('Werewolf');
           });
           if (team === 'Villager') {
             return wolfKilled || (!wasWolf && $scope.rolesKilled.length == 0);
@@ -30,7 +30,7 @@ app.directive('whoDied', function() {
 
         $scope.endGame = function() {
           $scope.rolesKilled = [];
-          $scope.next();
+          $scope.restart();
         }
 
         playersRep.on('change', (newValue, oldValue) => {
@@ -44,7 +44,7 @@ app.directive('whoDied', function() {
       }]
   return {
     scope: {
-      next: '&'
+      restart: '&'
     },
     restrict: 'E',
     templateUrl: 'views/who-died.html',

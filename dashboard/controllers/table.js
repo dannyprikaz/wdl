@@ -13,7 +13,7 @@ app.controller('tableCtrl', function($scope) {
   $scope.addPlayer = function() {
     $scope.showTooMany = (Object.keys(playersRep.value).length >= 8);
     if (!$scope.showTooMany){
-      playersRep.value[newID()] = {name: $scope.playerName, role: ''}
+      playersRep.value[newID()] = {name: $scope.playerName, role: []}
       $scope.playerName = '';
     }
   };
