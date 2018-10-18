@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./angular.min.js"></script>
+    <script src="./constants.js"></script>
+</head>
+<body>
+  <div ng-app="countdownApp" ng-controller="countdownCtrl">
+    <div>
+      <form ng-submit="startCountdown()">
+        <input type="datetime-local" ng-model="broadcastStartTime"></input>
+        <input type="submit" value="Start Countdown"></input>
+      </form>
+    </div>
+    <div>
+      <h1>
+        {{setRepAndDisplay(timeUntilStart)}}
+      </h1>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('countdownApp', []);
+  app.controller('countdownCtrl', function($scope, $interval) {
+    $scope.timeUntilStart = 0
+
+    var ticker;
+
+    $scope.setRepAndDisplay = function(time) {
+      var prettyTime = displayTime(time);
+      countdownRep.value = prettyTime;
+      return prettyTime;
+    };
+
+    $scope.startCountdown = function() {
+      evalDiff();
+      if (ticker) {
+        stop();
+      }
+      ticker = $interval(function() {
+        evalDiff();
+        if ($scope.timeUntilStart <= 0) {
+          stop();
+        }
+      }, 1000);
+    };
+
+    function evalDiff() {
+      $scope.timeUntilStart = $scope.broadcastStartTime.getTime() - new Date().getTime();
+    }
+
+    function stop() {
+      $interval.cancel(ticker);
+    }
+
+    function displayTime(time) {
+      if (time <= 0) {
+        return streamStartMessage;
+      }
+      var min = ('00' + Math.floor(time / 60000)).slice(-2);
+      var sec = ('00' + Math.floor((time % 60000) / 1000)).slice(-2);
+      return min + ':' + sec;
+    }
+  });
+  </script>
+</body>
+</html>

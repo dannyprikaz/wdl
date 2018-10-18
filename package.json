@@ -36,6 +36,13 @@
         "headerColor": "#c0a955"
       },
       {
+        "name": "countdown",
+        "title": "Countdown",
+        "width": 2,
+        "file": "countdown.html",
+        "headerColor": "#5822A0"
+      },
+      {
         "name": "roles",
         "title": "Roles",
         "width": 4,
