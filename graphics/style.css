@@ -1,0 +1,248 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.show-container {
+  background-image: url('http://whodunnitleague.com/img/wdl-bg-gray.jpg');
+  background-size: cover;
+  width: 1280px;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
+  font-family: 'Roboto', sans-serif;
+}
+
+.video-wrapper {
+  background: rgb(0,255,0);
+  width: 1190px;
+  height: 524px;
+  position: absolute;
+  top: 64px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.multi-wrapper {
+  width: 1190px;
+  height: 524px;
+  position: absolute;
+  top: 64px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.overlays-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.top.scoreboard {
+  width: 920px;
+  height: 45px;
+  margin: 0 auto;
+  background: #000;
+  margin-top:-20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top.scoreboard .scores {
+  background: #000;
+  width: 404px;
+  height: 100%;
+  display: flex;
+}
+
+.top.scoreboard .scores .team-item {
+  display: inline-block;
+  height: 100%;
+}
+
+.top.scoreboard .scores .team-item .team-name, .top.scoreboard .scores .team-item .team-score {
+  color: #fff;
+  height: 100%;
+  display: inline-block;
+}
+
+.top.scoreboard .scores .team-item .team-name {
+  width: 80px;
+}
+
+.top.scoreboard .scores .team-item .team-score {
+  width: 50px;
+}
+
+.top.scoreboard .scores .team-item.wlv .team-name {
+  background: #383738;
+}
+
+.top.scoreboard .scores .team-item.vlg .team-name {
+  background: #1c3784;
+}
+
+.top.scoreboard .scores .team-item.tnr .team-name {
+  background: #a31a27;
+}
+
+.top.scoreboard .scores .team-item .team-name span, .top.scoreboard .scores .team-item .team-score span {
+  line-height: 45px;
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-size: 24px;
+}
+
+.top.scoreboard .scores .team-item .team-score span {
+  font-size:30px;
+  line-height:1em;
+}
+
+.top.scoreboard .round-clock {
+  background: #383738;
+  width: 290px;
+  height: 100%;
+  display: flex;
+}
+
+.round-container {
+  background: #000;
+  width: 100px;
+}
+
+.round-container span, .clock-container span {
+  line-height: 45px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.round-container span {
+  opacity: 0.8;
+}
+
+.clock-container {
+  display: flex;
+  justify-content: center;
+  width: 125px;
+}
+
+.clock-container span {
+  font-size: 25px;
+}
+
+.round-clock .wdl-logo img {
+  width: 66px;
+  height: 100%;
+}
+
+.wdl-logo {
+background: #000000;
+background: -moz-linear-gradient(left, #000000 0%, #383738 62%, #383738 100%);
+background: -webkit-linear-gradient(left, #000000 0%,#383738 62%,#383738 100%);
+background: linear-gradient(to right, #000000 0%,#383738 62%,#383738 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#383738',GradientType=1 );
+}
+
+#player-info {
+    width: 100%;
+    height: 130px;
+    bottom: 0;
+    position: absolute;
+    margin-bottom: -112px;
+}
+
+.player-info-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+player {
+  display: inline-block;
+  width: 188px;
+  height: 95px;
+  background:#0a193c;
+  font-family: "Roboto"
+}
+
+player.villager {
+  background: #0a193c;
+}
+
+player.wolf {
+  background: #212123;
+}
+
+player.tanner {
+  background: #601018;
+}
+
+
+
+.player-roles-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-flow: wrap;
+}
+
+.player-roles-wrapper li {
+  width: 100%;
+}
+
+.player-roles-wrapper li.current-role {
+  width: 100%;
+  height: 39px;
+}
+
+player.villager .player-roles-wrapper li.current-role {
+  background: #132f74;
+}
+
+player.wolf .player-roles-wrapper li.current-role {
+  background: #414042;
+}
+
+player.tanner .player-roles-wrapper li.current-role {
+  background: #be1e2d;
+}
+
+.player-roles-wrapper li.current-role h3 {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  line-height: 39px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.player-roles-wrapper li h3 {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 100;
+  color: #acacad;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.player-name {
+  text-align: center;
+  margin: 10px 0 0 0;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 100;
+}

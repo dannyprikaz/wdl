@@ -10,6 +10,9 @@
     </script>
     <script src="./controllers/table.js"></script>
     <script src="./directives/player.js"></script>
+    <link href="./style.css" rel="stylesheet">
+    <link href="../graphics/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:100,300,400|Roboto+Condensed" rel="stylesheet">
 </head>
 <body>
     <div ng-app="tableApp" ng-controller="tableCtrl">
@@ -24,6 +27,7 @@
       <div>
           <player
             ng-repeat="(key, player) in players"
+            ng-class="classByRole(player.role[0])"
             key="{{key}}"
             panel="{{true}}"
             active="activeRoles"
