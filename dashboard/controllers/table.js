@@ -23,6 +23,16 @@ app.controller('tableCtrl', function($scope) {
     $scope.showTooMany = false;
   };
 
+  $scope.classByRole = function(role) {
+    if (role.includes('Werewolf')) {
+      return 'wolf';
+    } else if (role == 'Tanner') {
+      return 'tanner';
+    } else {
+      return 'villager';
+    }
+  };
+
   $scope.reps.forEach(function(replicant) {
     replicant.on('change', (newValue, oldValue) => {
       $scope.$apply();

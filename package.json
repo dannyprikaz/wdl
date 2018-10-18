@@ -24,14 +24,14 @@
       {
         "name": "players",
         "title": "Players",
-        "width": 4,
+        "width": 8,
         "file": "player-panel.html",
         "headerColor": "#525F78"
       },
       {
         "name": "alerts",
         "title": "Alerts",
-        "width": "1",
+        "width": 1,
         "file": "alerts.html",
         "headerColor": "#c0a955"
       },
@@ -60,18 +60,18 @@
     "graphics": [
       {
         "file": "player-graphics.html",
-        "width": 1920,
-        "height": 1080
+        "width": 1280,
+        "height": 720
       },
       {
         "file": "alert-graphic.html",
-        "width": 1920,
-        "height": 1080
+        "width": 1280,
+        "height": 720
       },
       {
         "file": "middle-graphic.html",
-        "width": 1920,
-        "height": 1080
+        "width": 1280,
+        "height": 720
       }
     ]
   },

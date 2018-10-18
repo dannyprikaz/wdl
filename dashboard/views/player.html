@@ -1,14 +1,19 @@
-<div style="display:inline-block; margin:10px">
-    <h1 ng-if="player.role.length > 0">{{noTrail({role: player.role[0]})}}</h1>
-    <h2 ng-if="player.role.length > 1" ng-repeat="role in player.role.slice(1, player.role.length)">
-      {{noTrail({role: role})}}
-    </h2>
-    <h3>{{player.name}}</h3>
-    <p>
-      <button
-        ng-click="remove()"
-        ng-show="{{panel}}">
-        Remove
-      </button>
-    </p>
-</div>
+<ul class="player-roles-wrapper">
+  <li class="current-role">
+    <h3>{{player.role.length > 0 ? noTrail({role: player.role[0]}) : ''}}</h3>
+  </li>
+  <li>
+    <h3>{{player.role.length > 1 ? noTrail({role: player.role[1]}) : ''}}</h3>
+  </li>
+  <li>
+    <h3>{{player.role.length > 2 ? noTrail({role: player.role[2]}) : ''}}</h3>
+  </li>
+</ul>
+<h3 class="player-name">{{player.name}}</h3>
+<p>
+  <button
+    ng-click="remove()"
+    ng-show="{{panel}}">
+    Remove
+  </button>
+</p>

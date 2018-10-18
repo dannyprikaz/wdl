@@ -10,18 +10,21 @@
     </script>
     <script src="../dashboard/controllers/table.js"></script>
     <script src="../dashboard/directives/player.js"></script>
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:100,300,400|Roboto+Condensed" rel="stylesheet">
 </head>
 <body>
-    <div ng-app="tableApp" ng-controller="tableCtrl">
-      <div>
-          <player
-            ng-repeat="(key, player) in players"
-            key="{{key}}"
-            active="activeRoles"
-            player="player"
-            no-trail="noTrailingNumber(role)">
-          </player>
-      </div>
+  <div id="player-info" ng-app="tableApp" ng-controller="tableCtrl">
+    <div class="player-info-wrapper">
+        <player
+          ng-class="classByRole(player.role[0])"
+          ng-repeat="(key, player) in players"
+          key="{{key}}"
+          active="activeRoles"
+          player="player"
+          no-trail="noTrailingNumber(role)">
+        </player>
     </div>
+  </div>
 </body>
 </html>
