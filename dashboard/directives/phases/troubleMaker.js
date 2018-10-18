@@ -6,7 +6,6 @@
 
 app.directive('troubleMaker', function() {
   var controller = ['$scope', function ($scope) {
-    console.log('hello from inside the troubleMaker directive')
         $scope.players = {};
         $scope.rolesSwitched = [];
         $scope.toggle = toggle;
