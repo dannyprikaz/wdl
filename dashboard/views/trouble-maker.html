@@ -1,0 +1,14 @@
+<h2>Who did the Troublemaker switch?</h2>
+<div>
+  <div
+    style="display:inline-block;margin:10px"
+    ng-repeat="(key, player) in players">
+    <h3
+      style="opacity:{{rolesSwitched.includes(player.role[0]) ? 1 : .5}}"
+      ng-click="toggle(player.role[0], rolesSwitched, arrayNotFull)"
+      ng-show="player.role[player.role.length - 1] != 'Troublemaker'">
+        {{player.name}}
+    </h3>
+  </div>
+</div>
+<button ng-click="makeTrouble()">Submit</button>

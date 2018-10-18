@@ -1,7 +1,8 @@
 const playersRep = nodecg.Replicant('playersRep');
 const activeRolesRep = nodecg.Replicant('activeRolesRep');
 const middleRolesRep = nodecg.Replicant('middleRolesRep');
-NodeCG.waitForReplicants(playersRep, activeRolesRep, middleRolesRep).then(() => {
+const safeToSet = NodeCG.waitForReplicants(playersRep, activeRolesRep, middleRolesRep);
+safeToSet.then(() => {
   playersRep.value = (playersRep.value ? playersRep.value : {})
   activeRolesRep.value = (activeRolesRep.value ? activeRolesRep.value : [])
   middleRolesRep.value = (middleRolesRep.value ? middleRolesRep.value : [])
@@ -11,3 +12,7 @@ const onuwRoles = [
   'Troublemaker', 'Tanner', 'Drunk', 'Hunter', 'Mason1', 'Mason2', 'Insomniac',
   'Minion', 'Doppelganger'
 ];
+// const rolePhases = [
+//   {role: 'Troublemaker', directiveName: 'trouble-maker'},
+//   {role: 'Robber', directiveName: 'robber'}
+// ]

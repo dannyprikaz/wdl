@@ -9,11 +9,12 @@
 <body>
   <div ng-app="gamePhaseApp" ng-controller="gamePhaseCtrl">
     <assign-roles
-      next="next()" add-robber="addRobber()"
+      next="next()" add-role-phase="addRolePhase(rolePhase)"
       ng-show="currentPhase == 'assign-roles'">
     </assign-roles>
-    <robber next="next()" ng-show="currentPhase == 'robber'"></robber>
     <who-died restart="restart()" ng-show="currentPhase == 'who-died'"></who-died>
+    <robber next="next()" ng-show="currentPhase == 'robber'"></robber>
+    <trouble-maker next="next()" ng-show="currentPhase == 'trouble-maker'"></troublemaker>
   </div>
   <script>
   var app = angular.module('gamePhaseApp', []);
@@ -23,6 +24,7 @@
 
     $scope.next = function() {
       $scope.currentPhase = $scope.phases.shift();
+      console.log($scope.currentPhase, $scope.phases)
     };
 
     $scope.restart = function() {
@@ -30,13 +32,14 @@
       $scope.currentPhase = 'assign-roles';
     }
 
-    $scope.addRobber = function() {
-      $scope.phases.unshift('robber');
+    $scope.addRolePhase = function(rolePhase) {
+      $scope.phases.unshift(rolePhase);
     };
   });
   </script>
   <script src="directives/phases/assignRoles.js"></script>
   <script src="directives/phases/whoDied.js"></script>
   <script src="directives/phases/robber.js"></script>
+  <script src="directives/phases/troubleMaker.js"></script>
 </body>
 </html>

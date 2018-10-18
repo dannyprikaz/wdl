@@ -4,8 +4,11 @@
 
 'use strict';
 
+console.log('hello from whoDied.js')
+
 app.directive('whoDied', function() {
   var controller = ['$scope', function ($scope) {
+    console.log('hello from inside the whoDied directive')
         $scope.players = {};
         $scope.rolesKilled = [];
         $scope.teams = ['Werewolf', 'Tanner', 'Villager'];
@@ -37,7 +40,7 @@ app.directive('whoDied', function() {
           $scope.$apply();
         });
 
-        NodeCG.waitForReplicants(playersRep).then(() => {
+        safeToSet.then(() => {
           $scope.players = playersRep.value;
           $scope.$apply();
         });
