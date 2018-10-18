@@ -72,6 +72,11 @@
         "file": "middle-graphic.html",
         "width": 1280,
         "height": 720
+      },
+      {
+        "file": "gameplay-border.html",
+        "width": 1280,
+        "height": 720
       }
     ]
   },
