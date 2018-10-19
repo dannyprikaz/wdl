@@ -89,6 +89,11 @@
         "file": "countdown-graphic.html",
         "width": 1280,
         "height": 720
+      },
+      {
+        "file": "credits.html",
+        "width": 1280,
+        "height": 720
       }
     ]
   },
