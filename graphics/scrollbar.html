@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dashboard/angular.min.js"></script>
+    <script src="../dashboard/constants.js"></script>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+  <div ng-app="scrollbarApp" ng-controller="scrollbarCtrl" class="bottom-bar">
+    <div class="bottom-content">
+      <div class="week">
+        <span>Week 1</span>
+      </div>
+      <div class="scroll-container">
+        <marquee class="scroll-marquee">
+          {{scrollContents}}
+        </marquee>
+      </div>
+      <img src="../dashboard/img/wdl-logo.png" />
+    </div>
+  </div>
+  <script>
+  var app = angular.module('scrollbarApp', []);
+  app.controller('scrollbarCtrl', function($scope) {
+    $scope.scrollContents = 'Nothing has been put in yet.';
+    
+    scrollbarRep.on('change', (newValue, oldValue) => {
+      $scope.scrollContents = scrollbarRep.value;
+      $scope.$apply();
+    });
+  });
+  </script>
+</body>
+</html>

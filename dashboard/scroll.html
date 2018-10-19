@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./angular.min.js"></script>
+    <script src="./constants.js"></script>
+</head>
+<body>
+  <div ng-app="scrollApp" ng-controller="scrollCtrl">
+    <div>
+      <textarea rows="10" cols="70"
+        ng-model="scrollContents" ng-change="updateContents()">
+      </textarea>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('scrollApp', []);
+  app.controller('scrollCtrl', function($scope) {
+    $scope.updateContents = function() {
+      scrollbarRep.value = $scope.scrollContents;
+    }
+  });
+  </script>
+</body>
+</html>

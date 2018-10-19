@@ -62,6 +62,13 @@
         "width": 3,
         "file": "middle.html",
         "headerColor": "#444444"
+      },
+      {
+        "name": "scroll",
+        "title": "Scroll",
+        "width": 3,
+        "file": "scroll.html",
+        "headerColor": "#3a9859"
       }
     ],
     "graphics": [
@@ -92,6 +99,11 @@
       },
       {
         "file": "credits.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "scrollbar.html",
         "width": 1280,
         "height": 720
       }
