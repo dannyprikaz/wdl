@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dashboard/angular.min.js"></script>
+    <script src="../dashboard/constants.js"></script>
+    <link href="./style.css" rel="stylesheet">
+    <link href="../graphics/fonts/font-faces.css" rel="stylesheet">
+</head>
+<body>
+  <div ng-app="scrollbarApp" ng-controller="scrollbarCtrl" class="top scoreboard">
+    <div class="scores">
+      <div class="team-item wlv">
+        <div class="team-name">
+          <span>WLV</span>
+        </div>
+        <div class="team-score">
+          <span>0</span>
+        </div>
+      </div>
+      <div class="team-item vlg">
+        <div class="team-name ">
+          <span>VLG</span>
+        </div>
+        <div class="team-score">
+          <span>0</span>
+        </div>
+      </div>
+      <div class="team-item tnr">
+        <div class="team-name">
+          <span>TNR</span>
+        </div>
+        <div class="team-score">
+          <span>0</span>
+        </div>
+      </div>
+    </div>
+    <div class="round-clock">
+      <div class="round-container">
+        <span>Round </span><span class="round-number">1</span>
+      </div>
+      <div class="wdl-logo">
+        <img src="../dashboard/img/wdl-logo.png" />
+      </div>
+      <div class="clock-container">
+        <span>52:33</span>
+      </div>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('scrollbarApp', []);
+  app.controller('scoreBoardCtrl', function($scope) {
+    $scope.scrollContents = 'Nothing has been put in yet.';
+
+    scrollbarRep.on('change', (newValue, oldValue) => {
+      $scope.scrollContents = scrollbarRep.value;
+      $scope.$apply();
+    });
+  });
+  </script>
+</body>
+</html>
