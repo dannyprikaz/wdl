@@ -29,6 +29,9 @@ app.directive('whoDied', function() {
         };
 
         $scope.endGame = function() {
+          showStatsRep.value.teams.vlg.score += Number($scope.victory('Villager'));
+          showStatsRep.value.teams.tnr.score += Number($scope.victory('Tanner'));
+          showStatsRep.value.teams.wlv.score += Number($scope.victory('Werewolf'));
           $scope.rolesKilled = [];
           $scope.restart();
         }

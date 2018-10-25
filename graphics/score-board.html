@@ -8,36 +8,21 @@
     <link href="../graphics/fonts/font-faces.css" rel="stylesheet">
 </head>
 <body>
-  <div ng-app="scrollbarApp" ng-controller="scrollbarCtrl" class="top scoreboard">
+  <div ng-app="scoreBoardApp" ng-controller="scoreBoardCtrl" class="top scoreboard">
     <div class="scores">
-      <div class="team-item wlv">
+      <div class="team-item {{team.name}}"
+           ng-repeat="(key, team) in showStats.teams">
         <div class="team-name">
-          <span>WLV</span>
+          <span style="text-transform:uppercase">{{team.name}}</span>
         </div>
         <div class="team-score">
-          <span>0</span>
-        </div>
-      </div>
-      <div class="team-item vlg">
-        <div class="team-name ">
-          <span>VLG</span>
-        </div>
-        <div class="team-score">
-          <span>0</span>
-        </div>
-      </div>
-      <div class="team-item tnr">
-        <div class="team-name">
-          <span>TNR</span>
-        </div>
-        <div class="team-score">
-          <span>0</span>
+          <span>{{team.score}}</span>
         </div>
       </div>
     </div>
     <div class="round-clock">
       <div class="round-container">
-        <span>Round </span><span class="round-number">1</span>
+        <span>Round </span><span class="round-number">{{showStats.round}}</span>
       </div>
       <div class="wdl-logo">
         <img src="../dashboard/img/wdl-logo.png" />
@@ -48,12 +33,12 @@
     </div>
   </div>
   <script>
-  var app = angular.module('scrollbarApp', []);
+  var app = angular.module('scoreBoardApp', []);
   app.controller('scoreBoardCtrl', function($scope) {
-    $scope.scrollContents = 'Nothing has been put in yet.';
+    $scope.showStats = {};
 
-    scrollbarRep.on('change', (newValue, oldValue) => {
-      $scope.scrollContents = scrollbarRep.value;
+    showStatsRep.on('change', (newValue, oldValue) => {
+      $scope.showStats = showStatsRep.value;
       $scope.$apply();
     });
   });
