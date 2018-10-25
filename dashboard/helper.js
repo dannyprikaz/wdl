@@ -22,3 +22,11 @@ function toggle(item, arr, condition = function() {return true;}) {
     arr.push(item);
   }
 }
+function displayTime(time, zero='00:00') {
+  if (time <= 0) {
+    return zero;
+  }
+  var min = ('00' + Math.floor(time / 60000)).slice(-2);
+  var sec = ('00' + Math.floor((time % 60000) / 1000)).slice(-2);
+  return min + ':' + sec;
+}

@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <script src="./angular.min.js"></script>
     <script src="./constants.js"></script>
+    <script src="./helper.js"></script>
 </head>
 <body>
   <div ng-app="showStatsApp" ng-controller="showStatsCtrl">
+    <p>
+      Show Timer: {{setRepAndDisplay(timeSinceStart)}}
+    </p>
     <p>
       Week: <input type="text" ng-model="showStats.week" size="1" maxlength="1"></input>
     </p>
@@ -30,8 +34,18 @@
   </div>
   <script>
   var app = angular.module('showStatsApp', []);
-  app.controller('showStatsCtrl', function($scope) {
+  app.controller('showStatsCtrl', function($scope, $interval) {
     $scope.showStats = {};
+    $scope.timeSinceStart = 0;
+    $scope.broadcastStartTime = 0;
+
+    var ticker;
+
+    $scope.setRepAndDisplay = function(time) {
+      var prettyTime = displayTime(time);
+      showTimerRep.value = prettyTime;
+      return prettyTime;
+    };
 
     $scope.cantStart = function () {
       return Object.entries(playersRep.value).length < 3 || !$scope.showStats.week;
@@ -41,11 +55,31 @@
       showStatsRep.value.teams = initTeams;
       showStatsRep.value.round = 0;
       showStatsRep.value.week = $scope.showStats.week;
+      startShowTimer();
     };
 
     $scope.correct = function () {
       showStatsRep.value = $scope.showStats;
     };
+
+    function startShowTimer() {
+      $scope.broadcastStartTime = new Date().getTime();
+      evalDiff();
+      if (ticker) {
+        stop();
+      }
+      ticker = $interval(function() {
+        evalDiff();
+      }, 1000);
+    };
+
+    function evalDiff() {
+      $scope.timeSinceStart = new Date().getTime() - $scope.broadcastStartTime;
+    }
+
+    function stop() {
+      $interval.cancel(ticker);
+    }
 
     showStatsRep.on('change', (oldValue, newValue) => {
       $scope.showStats = showStatsRep.value;

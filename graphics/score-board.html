@@ -28,7 +28,7 @@
         <img src="../dashboard/img/wdl-logo.png" />
       </div>
       <div class="clock-container">
-        <span>52:33</span>
+        <span>{{showTimer}}</span>
       </div>
     </div>
   </div>
@@ -39,6 +39,11 @@
 
     showStatsRep.on('change', (newValue, oldValue) => {
       $scope.showStats = showStatsRep.value;
+      $scope.$apply();
+    });
+
+    showTimerRep.on('change', (newValue, oldValue) => {
+      $scope.showTimer = showTimerRep.value;
       $scope.$apply();
     });
   });

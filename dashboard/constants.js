@@ -4,9 +4,10 @@ const middleRolesRep = nodecg.Replicant('middleRolesRep');
 const countdownRep = nodecg.Replicant('countdownRep');
 const scrollbarRep = nodecg.Replicant('scrollbarRep');
 const showStatsRep = nodecg.Replicant('showStatsRep');
+const showTimerRep = nodecg.Replicant('showTimerRep');
 const safeToSet = NodeCG.waitForReplicants(
   playersRep, activeRolesRep, middleRolesRep,
-  countdownRep, scrollbarRep, showStatsRep
+  countdownRep, scrollbarRep, showStatsRep, showTimerRep
 );
 const streamStartMessage = 'The stream will begin shortly.'
 safeToSet.then(() => {
@@ -16,6 +17,7 @@ safeToSet.then(() => {
   countdownRep.value = streamStartMessage;
   scrollbarRep.value = (scrollbarRep.value ? scrollbarRep.value : 'Nothing.');
   showStatsRep.value = (showStatsRep.value ? showStatsRep.value : {});
+  showTimerRep.value = '00:00';
 });
 const onuwRoles = [
   'Werewolf1', 'Werewolf2', 'Villager1', 'Villager2', 'Villager3', 'Seer',

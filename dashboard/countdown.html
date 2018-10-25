@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="./angular.min.js"></script>
     <script src="./constants.js"></script>
+    <script src="./helper.js"></script>
 </head>
 <body>
   <div ng-app="countdownApp" ng-controller="countdownCtrl">
@@ -22,12 +23,12 @@
   <script>
   var app = angular.module('countdownApp', []);
   app.controller('countdownCtrl', function($scope, $interval) {
-    $scope.timeUntilStart = 0
+    $scope.timeUntilStart = 0;
 
     var ticker;
 
     $scope.setRepAndDisplay = function(time) {
-      var prettyTime = displayTime(time);
+      var prettyTime = displayTime(time, streamStartMessage);
       countdownRep.value = prettyTime;
       return prettyTime;
     };
@@ -51,15 +52,6 @@
 
     function stop() {
       $interval.cancel(ticker);
-    }
-
-    function displayTime(time) {
-      if (time <= 0) {
-        return streamStartMessage;
-      }
-      var min = ('00' + Math.floor(time / 60000)).slice(-2);
-      var sec = ('00' + Math.floor((time % 60000) / 1000)).slice(-2);
-      return min + ':' + sec;
     }
   });
   </script>
