@@ -8,23 +8,49 @@
 <body>
   <div ng-app="showStatsApp" ng-controller="showStatsCtrl">
     <p>
-      Week: <input type="text" ng-model="week" size="1" maxlength="1"></input>
+      Week: <input type="text" ng-model="showStats.week" size="1" maxlength="1"></input>
     </p>
     <button ng-click="startShow()" ng-disabled="cantStart()">Start Show</button>
+    <p>
+      Scores:
+      <span ng-repeat="team in showStats.teams" style="text-transform:uppercase">
+        {{team.name}}
+        <input type="text" size="1" maxlength="1"
+               ng-model="team.score">
+        </input>
+      </span>
+    </p>
+    <p>
+      Round:
+      <input type="text" size="1" maxlength="1"
+             ng-model="showStats.round">
+      </input>
+    </p>
+    <button ng-click="correct()">Correct Stats</button>
   </div>
   <script>
   var app = angular.module('showStatsApp', []);
   app.controller('showStatsCtrl', function($scope) {
-    $scope.week = '';
+    $scope.showStats = {};
 
     $scope.cantStart = function () {
-      return Object.entries(playersRep.value).length < 3 || !$scope.week;
+      return Object.entries(playersRep.value).length < 3 || !$scope.showStats.week;
     };
 
     $scope.startShow = function () {
-      showStatsRep.value['teams'] = initTeams;
-      showStatsRep.value['round'] = 0;
-    }
+      showStatsRep.value.teams = initTeams;
+      showStatsRep.value.round = 0;
+      showStatsRep.value.week = $scope.showStats.week;
+    };
+
+    $scope.correct = function () {
+      showStatsRep.value = $scope.showStats;
+    };
+
+    showStatsRep.on('change', (oldValue, newValue) => {
+      $scope.showStats = showStatsRep.value;
+      $scope.$apply();
+    });
   });
   </script>
 </body>
