@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="../dashboard/angular.min.js"></script>
+  <script src="../dashboard/constants.js"></script>
   <link href="./style.css" rel="stylesheet">
   <link href="../graphics/fonts/font-faces.css" rel="stylesheet">
 </head>
 <body>
-  <div class="show-container">
+  <div ng-app="creditsApp" ng-controller="creditsCtrl" class="show-container">
     <div class="credits-wrapper">
       <div>
         <h1>Executive Producer</h1>
@@ -22,28 +24,42 @@
       </div>
       <div>
         <h1>Host</h1>
-        <h2>Hannah Miller</h2>
-        <h2>Danny Prikazsky</h2>
+        <h2>{{showStats.hostLeft}}</h2>
+        <h2>{{showStats.hostRight}}</h2>
       </div>
       <div>
         <h1>Correspondent</h1>
-        <h2>Alyssa Barrett Jackson</h2>
+        <h2>{{showStats.correspondent}}</h2>
       </div>
       <div>
         <h1>Special Guest</h1>
-        <h2>Zach Huddleston</h2>
+        <h2>{{players[players.length-1].name}}</h2>
       </div>
       <div>
         <h1>Players</h1>
-        <h2>Kassie Johnston</h2>
-        <h2>Jacki Schwarz</h2>
-        <h2>Robert Svetlik</h2>
-        <h2>Alex Wendel</h2>
+        <h2 ng-repeat="player in players.slice(0, players.length-1)">{{player.name}}</h2>
       </div>
       <div>
         <img src="../dashboard/img/R facing WDL 3D Logo monogrammed.png" />
       </div>
     </div>
   </div>
+  <script>
+  var app = angular.module('creditsApp', []);
+  app.controller('creditsCtrl', function($scope) {
+    $scope.showStats = {};
+    $scope.players = [];
+
+    showStatsRep.on('change', (newValue, oldValue) => {
+      $scope.showStats = showStatsRep.value;
+      $scope.$apply();
+    });
+
+    playersRep.on('change', (newValue, oldValue) => {
+      $scope.players = Object.values(playersRep.value);
+      $scope.$apply();
+    });
+  });
+  </script>
 </body>
 </html>
