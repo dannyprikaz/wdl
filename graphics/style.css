@@ -4,7 +4,7 @@ body {
 }
 
 .show-container {
-  background-image: url('http://whodunnitleague.com/img/wdl-bg-gray.jpg');
+  background-image: url('../dashboard/img/wdl-bg-gray.jpg');
   background-size: cover;
   width: 1280px;
   height: 720px;
@@ -97,9 +97,10 @@ body {
   height: 45px;
   margin: 0 auto;
   background: #000;
-  margin-top:-20px;
+  margin-top:44px;
   display: flex;
   justify-content: space-between;
+  font-family: Roboto, sans-serif;
 }
 
 .top.scoreboard .scores {

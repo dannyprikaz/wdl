@@ -11,7 +11,7 @@
   <div ng-app="scrollbarApp" ng-controller="scrollbarCtrl" class="bottom-bar">
     <div class="bottom-content">
       <div class="week">
-        <span>Week 1</span>
+        <span>Week {{week}}</span>
       </div>
       <div class="scroll-container">
         <marquee class="scroll-marquee">
@@ -25,9 +25,15 @@
   var app = angular.module('scrollbarApp', []);
   app.controller('scrollbarCtrl', function($scope) {
     $scope.scrollContents = 'Nothing has been put in yet.';
+    $scope.week = 0;
 
     scrollbarRep.on('change', (newValue, oldValue) => {
       $scope.scrollContents = scrollbarRep.value;
+      $scope.$apply();
+    });
+
+    showStatsRep.on('change', (newValue, oldValue) => {
+      $scope.week = showStatsRep.value.week;
       $scope.$apply();
     });
   });

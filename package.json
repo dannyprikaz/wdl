@@ -69,6 +69,13 @@
         "width": 3,
         "file": "scroll.html",
         "headerColor": "#3a9859"
+      },
+      {
+        "name": "showStats",
+        "title": "Show Stats",
+        "width": 3,
+        "file": "show-stats.html",
+        "headerColor": "#af4c00"
       }
     ],
     "graphics": [
@@ -104,6 +111,11 @@
       },
       {
         "file": "scrollbar.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "score-board.html",
         "width": 1280,
         "height": 720
       }

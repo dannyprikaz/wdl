@@ -24,6 +24,7 @@ app.directive('assignRoles', function() {
         $scope.addRolePhase({rolePhase: 'robber'});
       }
       middleRolesRep.value = roles;
+      showStatsRep.value.round += 1;
       $scope.next();
     };
   }],

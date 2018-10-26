@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dashboard/angular.min.js"></script>
+    <script src="../dashboard/constants.js"></script>
+    <link href="./style.css" rel="stylesheet">
+    <link href="../graphics/fonts/font-faces.css" rel="stylesheet">
+</head>
+<body>
+  <div ng-app="scoreBoardApp" ng-controller="scoreBoardCtrl" class="top scoreboard">
+    <div class="scores">
+      <div class="team-item {{team.name}}"
+           ng-repeat="(key, team) in showStats.teams">
+        <div class="team-name">
+          <span style="text-transform:uppercase">{{team.name}}</span>
+        </div>
+        <div class="team-score">
+          <span>{{team.score}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="round-clock">
+      <div class="round-container">
+        <span>Round </span><span class="round-number">{{showStats.round}}</span>
+      </div>
+      <div class="wdl-logo">
+        <img src="../dashboard/img/wdl-logo.png" />
+      </div>
+      <div class="clock-container">
+        <span>{{showTimer}}</span>
+      </div>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('scoreBoardApp', []);
+  app.controller('scoreBoardCtrl', function($scope) {
+    $scope.showStats = {};
+
+    showStatsRep.on('change', (newValue, oldValue) => {
+      $scope.showStats = showStatsRep.value;
+      $scope.$apply();
+    });
+
+    showTimerRep.on('change', (newValue, oldValue) => {
+      $scope.showTimer = showTimerRep.value;
+      $scope.$apply();
+    });
+  });
+  </script>
+</body>
+</html>
