@@ -350,3 +350,60 @@ player.tanner .player-roles-wrapper li.current-role {
   font-size: 20px;
   width: 100%;
 }
+
+.name-container {
+  position: absolute;
+  bottom: 13%;
+  text-align: center;
+  height:50px;
+  width: 100%;
+  text-transform: uppercase;
+  color: white;
+  font-family: Roboto, sans-serif;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.name-container.hosts {
+  bottom: 8%;
+}
+
+.name-tag {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(240, 30, 45, 0.8);
+  height: 100%;
+  opacity: 0;
+  animation: 10s in-and-out linear;
+}
+
+.name-tag.correspondent {
+  width: 30%;
+}
+
+.name-tag.hosts {
+  width: 60%;
+}
+
+.name-tag div {
+  display: inline-block;
+  position: relative;
+  top: 9px;
+}
+
+.last-name {
+  font-weight: 400;
+}
+
+.spacer {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+@keyframes in-and-out {
+    0% { opacity:  0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+  100% { opacity: 0; }
+}

@@ -12,6 +12,12 @@
       Show Timer: {{setRepAndDisplay(timeSinceStart)}}
     </p>
     <p>
+      Correspondent: <input type="text" ng-model="showStats.correspondent"></input>
+    </p>
+    <p>
+      Host Left: <input type="text" ng-model="showStats.hostLeft"></input>
+      Host Right: <input type="text" ng-model="showStats.hostRight"></input>
+    <p>
       Week: <input type="text" ng-model="showStats.week" size="1" maxlength="1"></input>
     </p>
     <button ng-click="startShow()" ng-disabled="cantStart()">Start Show</button>
