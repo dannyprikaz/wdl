@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dashboard/angular.min.js"></script>
+    <script src="../dashboard/constants.js"></script>
+    <link href="./style.css" rel="stylesheet">
+    <link href="../graphics/fonts/font-faces.css" rel="stylesheet">
+</head>
+<body>
+  <div ng-app="correspondentApp" ng-controller="correspondentCtrl"
+       class="name-container">
+    <div class="name-tag correspondent">
+      <div class="staff-name">
+        {{correspondent.slice(0, correspondent.length - 1).join(' ')}}
+        <span class="last-name"> {{correspondent[correspondent.length - 1]}}</span>
+      </div>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('correspondentApp', []);
+  app.controller('correspondentCtrl', function($scope) {
+    $scope.correspondent = [];
+
+    showStatsRep.on('change', (newValue, oldValue) => {
+      $scope.correspondent = showStatsRep.value.correspondent.split(' ');
+      $scope.$apply();
+    });
+  });
+  </script>
+</body>
+</html>

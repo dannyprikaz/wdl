@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="../dashboard/angular.min.js"></script>
+    <script src="../dashboard/constants.js"></script>
+    <link href="./style.css" rel="stylesheet">
+    <link href="../graphics/fonts/font-faces.css" rel="stylesheet">
+</head>
+<body>
+  <div ng-app="hostsApp" ng-controller="hostsCtrl" class="name-container hosts">
+    <div class="name-tag hosts">
+      <div class="staff-name">
+        {{hostLeft.slice(0, hostLeft.length - 1).join(' ')}}
+        <span class="last-name"> {{hostLeft[hostLeft.length - 1]}}</span>
+      </div>
+      <div class="spacer">
+        |
+      </div>
+      <div class="staff-name">
+        {{hostRight.slice(0, hostRight.length - 1).join(' ')}}
+        <span class="last-name"> {{hostRight[hostRight.length - 1]}}</span>
+      </div>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('hostsApp', []);
+  app.controller('hostsCtrl', function($scope) {
+    $scope.hostLeft = '';
+    $scope.hostRight = '';
+
+    showStatsRep.on('change', (newValue, oldValue) => {
+      $scope.hostLeft = showStatsRep.value.hostLeft.split(' ');
+      $scope.hostRight = showStatsRep.value.hostRight.split(' ');
+      $scope.$apply();
+    });
+  });
+  </script>
+</body>
+</html>
