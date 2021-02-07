@@ -6,13 +6,17 @@
 </head>
 <body>
   <div ng-app="alertsApp" ng-controller="alertsCtrl">
-    <button ng-click="alert()">Good Play!</button>
+    <button ng-click="alertGoodPlay()">Good Play!</button>
+    <button ng-click="alertBadLie()">Bad Lie!</button>
   </div>
   <script>
   var app = angular.module('alertsApp', []);
   app.controller('alertsCtrl', function($scope) {
-    $scope.alert = function() {
+    $scope.alertGoodPlay = function() {
       nodecg.sendMessage('goodPlay');
+    };
+    $scope.alertBadLie = function() {
+      nodecg.sendMessage('badLie');
     };
   });
   </script>
